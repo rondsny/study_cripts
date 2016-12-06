@@ -3,7 +3,7 @@
 import urllib
 import socket
 
-socket.setdefaulttimeout(3)
+socket.setdefaulttimeout(1)
 f = open("./ip.txt")
 lines = f.readlines()
 proxys = []
@@ -29,5 +29,6 @@ for proxy in proxys:
 
 print "[ALLOW IPS]"
 
+fsave = open("./ip_legal.txt", "w")
 for proxy in allow_proxys:
-    print proxy
+    fsave.write(proxy["http"]+"\n")
