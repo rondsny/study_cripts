@@ -1,1 +1,1 @@
-# study_cripts
+# study_scripts
