@@ -29,7 +29,7 @@ def get_mp3_url(url):
 
 def save_mp3(url, count):
     r = requests.get(url, headers = headers)
-    name = "reader3/%d.mp3" % (count)
+    name = "test/%d.mp3" % (count)
     with open(name, 'wb') as file:
         file.write(r.content)
     return True
@@ -63,8 +63,9 @@ def get_page_count(url):
 def test(url):
     page_count = get_page_count(url)
     for index in range(page_count):
-        print index
-
+        page_url = '%s?page=%d' % (url, (index - 1))
+        print page_url
+        down_a_page(page_url)
 
 url = "http://www.ximalaya.com/54715628/album/4790468/"
 url = "http://www.ximalaya.com/96295838/album/12642897/"
@@ -75,3 +76,4 @@ url = "http://www.ximalaya.com/44190264/album/5088879/"
 # url = "http://www.ximalaya.com/44190264/album/5088879?page=2"
 # url = "http://www.ximalaya.com/44190264/album/5088879?page=3"
 test(url)
+
